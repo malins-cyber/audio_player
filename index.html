@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Music Player</title>
+    <link
+      rel="stylesheet"
+      href="./boxicons/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <div class="track-metadata"></div>
+    <div class="track-list"></div>
+
+    <script type="module">
+      import AudioPlayer from "./js/AudioPlayer.js";
+      import { initializeMusicPlayer } from "./js/MusicLibrary.js";
+
+      //const rawSongData = `{}`;
+      const rawSongData = `{
+    "songs": [
+        {
+            "title": "Give in ft Crystal Nicole",
+            "artist": "lecrae",
+            "audioSource": "./songs/Give-In-Ft-Crystal-Nicole.mp3",
+            "albumArt": "./profiles/appe-1.png"
+        },
+        {
+            "title": "CC4",
+            "artist": "lecrae",
+            "audioSource": "./songs/CC4.mp3",
+            "albumArt": "./profiles/appe-2.png"
+        },
+        {
+            "title": "Spread the ops",
+            "artist": "lecrae",
+            "audioSource": "./songs/Spread-the-Opps.mp3",
+            "albumArt": "./profiles/appe-3.png"
+        },
+        {
+            "title": "Good, bad, ugly",
+            "artist": "lecrae",
+            "audioSource": "./songs/Good-Bad-Ugly.mp3",
+            "albumArt": "./profiles/appe-4.png"
+        },
+        {
+            "title": "Dirt",
+            "artist": "lecrae",
+            "audioSource": "./songs/Dirt.mp3",
+            "albumArt": "./profiles/appe-5.png"
+        },
+        {
+            "title": "Still in america",
+            "artist": "lecrae",
+            "audioSource": "./songs/Still-In-America.mp3",
+            "albumArt": "./profiles/appe-5.png"
+        },
+        {
+            "title": "Misconception",
+            "artist": "lecrae",
+            "audioSource": "./songs/Misconceptions-4.mp3",
+            "albumArt": "./profiles/appe-6.png"
+        },
+        {
+            "title": "Boasting ft Antony evans",
+            "artist": "lecrae",
+            "audioSource": "./songs/Boasting-ft-Anthony-Evans.mp3",
+            "albumArt": "./profile1.jpg"
+        },
+        {
+            "title": "good lord",
+            "artist": "lecrae",
+            "audioSource": "./songs/Good-Lord.mp3",
+            "albumArt": "./profiles/appe-7.png"
+        },
+        {
+            "title": "Background ft. C-Lite",
+            "artist": "lecrae",
+            "audioSource": "./songs/Background-ft-C-Lite.mp3",
+            "albumArt": "./profiles/appe-7.png"
+        },
+        {
+            "title": "Lucky ones ft. Rudy Currence",
+            "artist": "lecrae",
+            "audioSource": "./songs/Lucky-Ones-(feat-Rudy-Currence).mp3",
+            "albumArt": "./profiles/appe-8.png"
+        },
+        {
+            "title": "take me up",
+            "artist": "lecrae",
+            "audioSource": "./songs/Take-Me-Up.mp3",
+            "albumArt": "./profiles/appe-9.png"
+        },
+        {
+            "title": "protect my peace",
+            "artist": "lecrae",
+            "audioSource": "./songs/Protect-My-Peace.mp3",
+            "albumArt": "./profiles/appe-1.png"
+        }
+    ]
+}`;
+
+      const songData = JSON.parse(rawSongData);
+
+      const songs = songData.songs;
+
+      songs.forEach((song) => {
+        console.log(`Title: ${song.title}`);
+        console.log(`Artist: ${song.artist}`);
+        console.log(`Audio Source: ${song.audioSource}`);
+        console.log(`Album Art: ${song.albumArt}`);
+        console.log("---");
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const { musicLibrary, audioPlayer } =
+          initializeMusicPlayer(rawSongData);
+      });
+    </script>
+  </body>
+</html>
